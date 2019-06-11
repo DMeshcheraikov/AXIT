@@ -1,0 +1,166 @@
+// ============================
+// RESETS
+// ============================
+table, thead, tbody, tfoot, tr, th, td 
+	margin: 0
+	padding: 0
+	border: none
+	border-collapse: inherit
+	border-spacing: 0
+	border-color: inherit
+	vertical-align: inherit
+	font-weight: inherit
+	-webkit-border-horizontal-spacing: 0
+	-webkit-border-vertical-spacing: 0 
+
+*, *:before, *:after
+	margin: 0
+	padding: 0 
+
+input 
+	border-radius: 0
+	// box-shadow: none !important 
+
+ul, ol 
+	list-style-type: none 
+
+a 
+	text-decoration: none
+	cursor: pointer 
+
+h2
+	font-family: "Raleway"
+	font-weight: normal
+	font-size: 2.25rem
+	text-align: center
+	padding-top: 80px
+	
+html 
+	-webkit-text-size-adjust: 100%
+	font-family: "Open Sans"
+
+input:focus,
+label:focus,
+textarea:focus,
+select:focus,
+option:focus,
+button:focus,
+a:focus 
+	outline: none 
+
+*, *:before, *:after, input, textarea, button, select 
+	box-sizing: border-box 
+
+// ============================
+// FONTS
+// ============================
+
+@font-face 
+	font:	
+		family: "Raleway"
+		weight: normal
+		style: normal
+	src: url("../fonts/Raleway-Regular.ttf") format("truetype")
+
+@font-face 
+	font:	
+		family: "Raleway"
+		weight: lighter
+		style: normal
+	src: url("../fonts/Raleway-Light.ttf") format("truetype")
+
+@font-face 
+	font:	
+		family: "Raleway"
+		weight: bold
+		style: normal
+	src: url("../fonts/Raleway-Bold.ttf") format("truetype")
+
+main > *:nth-child(odd)
+	background-color: #f5f5f5
+
+.title
+	font-family: "Raleway"
+	font-weight: normal
+	position: relative
+	padding-bottom: 1.56rem
+	&:before
+		content: ""
+		width: 65px
+		border-bottom: 2px solid $mainC1
+		position: absolute
+		left: 0
+		bottom: 0
+		
+.button
+	display: inline-block
+	font-family: "Open Sans"
+	font-weight: 600
+	font-size: 15px
+	color: #fff
+	text-transform: capitalize
+	border: none
+	background-color: transparent
+	transition: .2s
+	&_theme
+		&_white
+			border: 1px solid #fff
+			box-shadow: inset 0 0 0 1px rgba(#fff, .8)
+			padding: .66em 2em
+			&:hover
+				background-color: #fff
+				color: $mainC2
+		&_orange
+			border-radius: 4px
+			padding: 0.9em 1.42em
+			background-color: $mainC1
+			box-shadow: 0 1px 1px 0 rgba(#000, .2)
+			&:hover
+				background-color: $mainC2
+
+.strike
+	&_orange
+		border: solid 2px #ff8c2d
+		margin: 0 auto
+		margin-bottom: 30px
+		margin-top: 30px
+	&_white
+		margin-bottom: 30px
+		margin-top: 30px
+		border: solid .5px $mainC4
+	&_S
+		width: 65px
+	&_lightgrey
+		width: 30.8rem
+		border: solid 1px $mainC3
+	&_Fs
+		width: 100%
+		margin: 0
+
+.slick
+	&-arrow
+		position: absolute
+		top: 30%
+		transform: translate(0, -50%)
+		font-size: 0
+		z-index: 10
+		border: transparent
+		background-color: transparent
+		&:before
+			@include flex($jc: center, $ai: center)
+			width: 1em
+			height: 1em
+			font-family: "Font Awesome 5 Free"
+			font-weight: 600
+			font-size: 3.5rem
+			background-color: transparent
+	&-prev
+		left: 0
+		color: $mainC1
+		&:before
+			content: '\f0a8'
+	&-next
+		right: 0
+		color: $mainC1
+		&:before
+			content: '\f0a9'

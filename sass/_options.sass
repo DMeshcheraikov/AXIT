@@ -1,0 +1,53 @@
+// ============================
+// MAIN COLORS
+// ============================
+
+$mainC1: #ff8c2d //orange
+$mainC2: #333333 //grey
+$mainC3: #cccccc //lightgrey
+$mainC4: #86878b //LightgreyText
+// ============================
+// MEDIA
+// ============================
+
+$mediaBp: (1130px, 960px, 767px, 640px, 480px, 320px)
+
+// ============================
+// MIXINS
+// ============================
+
+@function col-width($n)
+	@if $n == auto
+		@return auto
+	@else
+		@return calc(100% / #{$n})
+
+@mixin flex ($d: flex, $jc: flex-start, $fw: nowrap, $ai: stretch, $fd: row)
+	display: $d
+	flex-flow: $fd $fw
+	justify-content: $jc
+	align-items: $ai
+
+
+@mixin grid ($s: 10px, $fw: nowrap, $c: auto)
+	&-grid
+		@include flex($fw: wrap)
+		margin: -#{$s}
+		&__col
+			width: col-width($c)
+			padding: $s
+
+@mixin grid2 ($d: grid, $c: 1, $r: auto, $g: 20px, $ji: stretch, $ai: stretch, $jc: start, $ac: start)
+	display: $d
+	@if (type-of($c) == number)
+		grid-template-columns: repeat($c, auto)
+	@else if (type-of($c) == list)
+		grid-template-columns: repeat(nth($c, 1), minmax(nth($c, 2), nth($c, 3)))
+	@else if (type-of($c) == string)
+		grid-template-columns: unquote($c)
+	grid-template-rows: $r
+	grid-gap: $g
+	justify-items: $ji
+	align-items: $ai
+	justify-content: $jc
+	align-content: $ac

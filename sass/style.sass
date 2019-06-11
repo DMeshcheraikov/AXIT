@@ -1,0 +1,542 @@
+@import "./_options"
+@import "./_default"
+
+// ============================
+// MAIN CODE START
+// ============================
+html
+	font-size: 16px
+
+.container
+	width: 100%
+	max-width: nth($mediaBp, 1)
+	padding-left: 10px
+	padding-right: 10px
+	margin-left: auto
+	margin-right: auto
+
+.header
+	@include grid ($s: 0px)
+	background-color: #000
+	padding: 1.25em 0
+	&-grid
+		justify-content: space-between
+		align-items: center
+
+.logo
+	font-size: 2.3rem
+	text-transform: uppercase
+	font-weight: bold
+	color: #fff
+	line-height: 1
+	span
+		font-weight: lighter
+		color: $mainC1
+	&_big
+		font-size: 5.25rem
+
+.nav
+	font-size: 14px
+	&-list
+		@include flex
+		li + li
+			margin-left: 2.85em
+		a
+			font-weight: 600
+			color: #fff
+			&:hover
+				text-decoration: underline
+.dark-block
+	position: relative
+	&:before
+		content: ""
+		width: 100%
+		height: 100%
+		position: absolute
+		left: 0
+		top: 0
+		background-color: rgba(#000, .52)
+	.container
+		position: relative
+		z-index: 1
+
+
+.preview
+	&-block
+		padding: 6.56rem 0 8.43rem
+		background: url(../img/preview.jpg) no-repeat center/cover
+		color: #fff
+		@include grid
+		&-grid
+			justify-content: space-between
+			align-items: flex-end
+		&__title
+			font-size: 2.25rem
+			max-width: 525px
+			padding-bottom: 1em
+			margin-bottom: 0.55em
+			text-align: left
+			&:before
+				border-color: #fff
+		&__text
+			max-width: 475px
+			font-family: "Raleway"
+			line-height: 1.4
+			font-weight: lighter
+			color: rgba(#fff, .8)
+			margin-top: 2.25em
+		&__btn
+			margin-top: 2.66em
+
+.form
+	font-size: 15px
+	width: 24em
+	background-color: #fff
+	color: $mainC2
+	border-radius: 4px
+	overflow: hidden
+	&-header
+		background-color: #f5f5f5
+		font-size: 1.33em
+		text-align: center
+		padding: .77em
+		&__title
+			font-weight: bold
+			span
+				color: $mainC1
+	&-wrap
+		padding: 2em 2.33em 3em
+	&__btn
+		width: 100%
+		text-align: center
+		background-color: $mainC1
+		padding: 1.1em
+		&:hover
+			background-color: $mainC1 *.85
+			cursor: pointer
+	&-item
+		font-size: 0.93em
+		position: relative
+		& + &
+			margin-top: 2.33em
+		&:last-child
+			margin-top: 3em
+		&__input
+			display: block
+			width: 100%
+			font-size: 1em
+			border: none
+				bottom: 1px solid #d6d6d6
+			padding: 0.66em 1em
+			font-family: "Open Sans"
+			background-color: transparent
+			position: relative
+			z-index: 1
+		&__text
+			color: #bdbdbd
+			position: absolute
+			left: 1em
+			top: 50%
+			transform: translate(0, -50%)
+			transition: .3s
+		&__line
+			border-bottom: 1px solid $mainC1
+			width: 0
+			position: absolute
+			left: 0
+			bottom: 0
+			transition: .5s
+			z-index: 2
+		&__input:focus ~ &__line
+			width: 100%
+		&__input:focus ~ &__text, &__input_active ~ &__text
+			top: 0
+			transform: translate(0, -100%)
+			font-size: 0.8em
+
+.social-media
+	&-block
+		padding: 1rem 0
+		box-shadow: 0 1px 3px 0 rgba(#000, .38)
+		position: relative
+		z-index: 1
+		@include grid
+		&-grid
+			align-items: center
+			justify-content: space-between
+		&__title
+			font-size: 1.25em
+			padding-top: 25px
+			font-weight: bold
+		&__text
+			margin-top: 0.35em
+			font-size: 0.87rem
+			line-height: 1.4
+			color: #86878b
+			padding-bottom: 15px
+
+.social-links
+	@include flex
+	font-size: 48px
+	li + li
+		margin-left: 1.14em
+	&__item
+		color: $mainC3
+		&:hover
+			color: $mainC2
+
+
+.features
+	&-block
+		padding: 7.75rem 0 5.75rem
+.tabs
+	@include grid2($d: grid, $c:2, $g: 100px)
+	grid-template-columns: 7.85em auto 
+	&-block
+		font-size: 14px
+	&-caption
+		border: 1px solid #c7c7c7
+			radius: 4px
+		&__btn
+			display: flex
+			justify-content: center
+			align-items: center
+			font-size: 1.07em
+			width: 7.19em
+			height: 7.12em
+			font-weight: bold
+			text-transform: uppercase
+			background-color: $mainC2
+			transition: .2s
+			&.active
+				cursor: pointer
+				background-color: $mainC1
+				border: 3px solid #c7c7c7
+			&:hover
+				cursor: pointer
+				background-color: $mainC2 / .5
+			& + &
+				border-top: 3px solid #c7c7c7
+	&__content
+		display: none
+		&.active
+			display: block
+
+			
+			
+	&-item
+		&-grid
+			@include grid2($d: grid, $r: 1, $c: 2, $g: 100px)
+			align-items: center
+			&__col
+				height: 22.97em
+				@include flex($d: flex, $fd: column)
+				position: relative
+				overflow: hidden
+		&__title
+			padding-top: 0
+			font-size: 1.42em
+			color: #000
+		&__text
+			line-height: 1.4
+			padding-top: 3.21em
+			color: #86878b
+			> * + *
+				margin-top: 1.1em
+		&__btn
+			width: 6.6em
+			font-size: 1.07em
+			position: absolute
+			bottom: 0
+		&__img
+			padding-top: 35px
+			max-width: 100%
+
+
+
+.feature
+	&-block
+		padding: 5.93rem 0 7.5rem
+		@include grid ($s: 30px)
+		font-size: 14px
+		&:nth-child(odd) &-grid
+			flex-direction: row-reverse
+		& .strike_orange
+			margin-left: 0
+		&-grid
+			justify-content: space-between
+			&__col
+				width: 50%
+				max-width: 515px
+		&__img
+			display: block
+			vertical-align: center
+			max-width: 100%
+			box-shadow: 0 15px 30px 0 rgba(#000, .15)
+		&__title
+			font-family: "Open Sans"
+			font-weight: bold
+			font-size: 1.42em
+		&__text
+			padding-top: 0
+		&__list
+			margin-top: 2.85em
+			li
+				@include flex
+				li + li
+					margin-top: 2.14em
+			&-icon
+				@include flex($jc: center, $ai: center)
+				width: 2.5em
+				height: 2.5em
+				border: 2px solid
+					radius: 50%
+				font-size: 1.14em
+				color: $mainC1
+				flex-shrink: 0
+				margin-right: 2.14em
+			&-title
+				font-size: 1em
+				font-weight: 600
+			&-text
+				color: #86878b
+				line-height: 1.4
+				margin-top: 0.7em
+
+.ourProcess
+	&-block
+		&__title
+		&__text
+			color: $mainC4
+			text-align: center
+	&-grid
+		padding-top: 80px
+		padding-bottom: 100px
+		@include grid2($c: 3, $g: 25px)
+		&__col
+			@include flex($fd: column, $ai: center)
+	&__icon
+		@include flex($jc: center, $ai: center)
+		width: 3em
+		height: 3em
+		border: 2px solid
+			radius: 50%
+		font-size: 1.35em
+		color: $mainC1
+		flex-shrink: 0
+		margin-bottom: 25px
+	&__title
+		padding-bottom: 28px
+		font-weight: bold
+		font-size: 1.25em
+	&__text
+		color: $mainC4
+		text-align: center
+		font-size: 0.87em
+
+.selection
+	&-block
+		& .container
+			// margin-left: auto
+			// margin-right: auto
+		&__title
+		&__text
+			color: $mainC4
+			text-align: center
+	&-grid
+		margin-top: 150px
+		padding-bottom: 90px
+		height: 29em
+		@include flex($jc: center, $ai: flex-end)
+		&__col
+			width: 20.56rem
+			margin: 15px
+			// &:nth-child(2)
+			// 	padding-bottom: 20px
+	&-items
+		background-color: #333333
+		@include flex($jc: space-around, $fd: column, $ai: center)
+		line-height: 2.2em
+		width: 20.56rem
+		color: white
+		margin: 0 auto
+		&__title
+			font-size: 1.25em
+			line-height: 2.5em
+		&__price
+			font-size: 5em
+			line-height: 1em
+			font-family: "Raleway"
+			font-weight: bold
+			span
+				font-size: .4em
+		&__MP
+			width: inherit
+			background-color: $mainC1
+			text-align: center
+		&__moment
+			font-size: 14px
+			font-weight: lighter
+			font-style: italic
+			color: #9e9e9e
+		&__list
+			width: inherit
+			@include flex($fd: column)
+			&-item
+				color: $mainC4
+				font-size: .85em
+				text-transform: uppercase
+				background-color: white
+				width: inherit
+				position: relative
+				text-align: center
+				&:before
+					content: ''
+					position: absolute
+					width: 100%
+					bottom: 0
+					right: 0
+					border: solid 1px $mainC3/ .8
+
+.payment
+	&-block
+		& .container
+			margin-left: auto
+			margin-right: auto
+		margin-bottom: 5.6em
+		&__text
+			text-align: center
+			color: $mainC4
+	&-grid
+		padding-top: 4.28em
+		@include flex($jc: space-between, $ai: center)	
+		& .slick-arrow
+			&:before
+				font-size: 2.5rem
+	&__speechbuble
+		align-items: center
+		margin: 0 auto
+		color: $mainC4
+		padding: 1em 1em 2em 1em
+		font-size: .87em
+		height: 10.71em
+		width: 18.74em
+		background-color: #cccccc4f
+		border-radius: 2px 2px 0 0
+		clip-path: polygon(0% 0%, 100% 0%, 100% 85%, 24% 85%, 14% 95%, 5% 85%, 0 85%)
+	&-person
+		margin: 0 auto
+		width: 16.44em
+		height: 5em
+		position: relative
+		&__avatar
+			position: absolute
+			left: 0
+			width: 4.68em
+			height: 4.68em
+			clip-path: circle(50% at 50% 50%)
+		display: flex
+		&-info
+			@include flex($fd: column, $jc: center)
+			padding-left: 1.1em
+			position: absolute
+			left: 5em
+			top: 1em
+			&__name
+				font-family: "Open Sans"
+				font-weight: bold
+				font-size: 1.25em
+				padding-bottom: .31em
+			&__prof
+				color: $mainC4
+				font-weight: lighter
+				font-size: .87em
+
+.contactUs
+	&-block
+		display: flex
+		flex-direction: column
+		&__text
+			color: $mainC4
+			text-align: center
+		& .container
+			padding-bottom: 80px
+	&-form
+		&-grid
+			padding-bottom: 45px
+			padding-top: 60px
+			padding-left: 10px
+			padding-right: 10px
+			@include flex
+			justify-content: space-between
+			&__col
+				@include flex($fd: column)
+				&:nth-child(2n)
+					margin-left: 30px		
+				overflow: hidden
+				margin: 10px
+		&__btn
+			margin-left: 50%
+			transform: translateX(-50%)
+		&-text
+			&__message
+				padding-bottom: 120px
+				padding-left: 10px
+				width: 32.8em
+				height: 10.07em
+				margin-top: 10px
+				border: none
+			&__text
+				border: none
+				height: 2.75em
+				width: 32.8em
+				padding-top: 10px
+				padding-left: 10px
+				margin-top: 10px
+
+
+.custom
+	&-block
+		& .container
+			@include flex($fd: column, $ai: center)
+			height: 320px
+			padding: -10px 180px 65px 180px
+			color: white
+			background: url(../img/custom.png) no-repeat center/cover
+		&__text
+			text-align: center
+		&__btn
+			margin-top: 30px
+			margin-bottom: 0
+.footer
+	background-color: black
+	&__rights
+		font-family: Open-Sans
+		font-size: 13px
+		text-align: center
+		padding-bottom: 15px
+		color: #696868
+
+
+.social-link
+	@include flex($jc: center)
+	padding: 25px 0 15px
+	font-size: 24px
+	li + li
+		margin-left: 1em
+	&__item
+		color: $mainC3
+		&:hover
+			color: $mainC2
+// ============================
+// MAIN CODE END
+// ============================
+
+@for $i from 1 to length($mediaBp)
+	@media (max-width: nth($mediaBp, $i))
+		.container
+			max-width: nth($mediaBp, $i + 1)
+
+// ============================
+// MEDIA QUARIES
+// ============================
